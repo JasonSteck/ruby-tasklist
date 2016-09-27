@@ -1,0 +1,45 @@
+<h1>Edit task</h1>
+ 
+<%= form_for :task, url: task_path(@task), method: :patch do |f| %>
+
+  <!-- display error message if user input is invalid --> 
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@task.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <!-- display user input fields for editing the selected task -->
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.select :category, @categoryOptions, :selected => @task.category %>
+  </p>
+
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<!-- back button -->
+<%= link_to 'Back', tasks_path, :class=>'btn btn-sm btn-primary' %>

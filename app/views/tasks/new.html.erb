@@ -1,0 +1,42 @@
+<h1>New task</h1>
+
+<%= form_for :task, url: tasks_path do |f| %>
+
+  <!-- display error message if input is invalid-->
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@task.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- display input fields to create new task item -->
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.select :category, @categoryOptions %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<!-- back button -->
+<%= link_to 'Back', tasks_path, :class=>'btn btn-sm btn-primary' %>

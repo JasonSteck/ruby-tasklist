@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasklist</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render "/layouts/navbar" %>
+<div class="container">
+	<%= yield %>
+</div>
+<footer>
+	Copyright &copy; 2015 Paul Hanson and Jason Steck. All Rights Reserved <br/>
+</footer>
+</body>
+</html>

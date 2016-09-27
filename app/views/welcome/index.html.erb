@@ -1,0 +1,17 @@
+<center>
+	<h1>Welcome to the Task Master</h1>
+	<br/>
+	<form action="<%= tasks_path %>" method="POST" onsubmit="login(this); return false;">
+		<label>Username: 
+			<input type="text" name="username"/>
+		</label>
+		<br/>
+		<label> Password: 
+			<input type="password" name="password"/>
+		</label>
+		<br/>
+		<input type="submit" value="Login" />
+		<br/>
+		<div id="warningBox" class="alert alert-warning" style='display: none'> </div>
+	</form>
+</center>
